@@ -39,7 +39,7 @@ const props = defineProps({
         
         <div class="pl-16 pr-16 mt-16">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight mb-8">
-                Crear Notes
+                Crear notes
             </h2>
         
             <ArticleEditor />
