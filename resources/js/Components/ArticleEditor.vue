@@ -55,7 +55,7 @@ const onSubmit = () => {
                     <!-- EDITOR -->
                     <div class="flex-1 flex flex-col">
                         <input v-model="form.title" class="h-10 mb-2 border-container" maxlength="45"
-                            placeholder="Títol" type="text" />
+                            placeholder="Títol" type="text" required />
 
                         <!-- Toolbar TODO: Leave highlighted if activated -->
                         <div class="border-container bg-white">
@@ -72,13 +72,13 @@ const onSubmit = () => {
                                 </button>
                             </div>
 
-                            <editor-content :editor="editor" class="m-4" />
+                            <editor-content :editor="editor" class="m-4" required/>
                         </div>
                     </div>
                     
 
                 </div>
-                <SaveButton class="w-40 h-10 block ml-auto mb-4 m-4">Crear Notes</SaveButton>
+                <SaveButton class="my-4">Crear Notes</SaveButton>
             </form>
 </template>
 
