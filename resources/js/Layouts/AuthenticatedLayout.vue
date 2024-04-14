@@ -135,6 +135,9 @@ const showingNavigationDropdown = ref(false);
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Crear una nota
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('notes.index')" :active="route().current('notes.index')">
+                            Les meves notes
+                        </ResponsiveNavLink>
                         <ResponsiveNavLink v-if="$page.props.auth.user.role === 'admin'" :href="route('admin.users')" :active="route().current('admin.users')">
                             Gestionar Usuaris
                         </ResponsiveNavLink>
