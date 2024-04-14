@@ -14,8 +14,8 @@ console.log(props.note);
 </script>
 
 <template>
-    <div class="bg-white p-8 border border-gray-300">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+    <div class="bg-white p-8 border border-gray-300 my-4">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight mb-8">
             {{ note.title }}
         </h2>
 
