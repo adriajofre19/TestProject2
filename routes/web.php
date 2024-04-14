@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NotesController;
 use App\Http\Middleware\EnsureIsAdmin;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::post('/notes/afegir', [HomeController::class, 'create'])->name('notes.create');
+
+    Route::get('/notes', [NotesController::class, 'index'])->name('notes.index');
 
     Route::middleware(EnsureIsAdmin::class)->group(function () {
         Route::get('/adminusers', [AdminPanelController::class, 'index'])->name('admin.users');

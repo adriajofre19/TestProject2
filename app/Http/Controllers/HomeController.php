@@ -32,6 +32,8 @@ class HomeController extends Controller
             'user_id' => auth()->id(),
         ]);
 
+        return redirect()->route('notes.index');
+
 
     }
 }

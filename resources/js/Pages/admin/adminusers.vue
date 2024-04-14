@@ -36,7 +36,7 @@ const props = defineProps({
         
             <div class="mb-4 bg-white p-8 border-b border-gray-300">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Administrar Usuaris
+                Gestionar Usuaris
             </h2>
             </div>
         

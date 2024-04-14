@@ -40,6 +40,11 @@ const showingNavigationDropdown = ref(false);
                                     Crear una nota
                                 </NavLink>
                             </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('notes.index')" :active="route().current('notes.index')">
+                                    Les meves notes
+                                </NavLink>
+                            </div>
                             <div v-if="$page.props.auth.user.role === 'admin'" class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('admin.users')" :active="route().current('admin.users')">
                                     Gestionar Usuaris
@@ -124,9 +129,17 @@ const showingNavigationDropdown = ref(false);
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                        <ResponsiveNavLink :href="route('home')" :active="route().current('home')">
+                            Inici
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                            Crear una nota
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink v-if="$page.props.auth.user.role === 'admin'" :href="route('admin.users')" :active="route().current('admin.users')">
+                            Gestionar Usuaris
+                        </ResponsiveNavLink>
+
+
                     </div>
 
                     <!-- Responsive Settings Options -->

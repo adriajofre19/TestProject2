@@ -115,9 +115,9 @@ function getInitials(name) {
                 </div>
             </div>
             <div class="flex items-center p-2">
-                <div class="flex items-center justify-center w-16 h-16 bg-gray-300 rounded-full">
+                <div class="flex items-center justify-center w-16 h-16 bg-gray-300 rounded-full mr-8 sm:mr-0">
                         <span class="text-xl font-medium text-gray-900">{{ getInitials(user.name) }}</span>
-                    </div>
+                </div>
                 <div class="sm:ml-8">
                     <span class="text-sm font-bold">{{ user.name }}</span>
                     <p class="cursor-default mt-1 text-sm text-gray-500">{{ user.email }}</p>
