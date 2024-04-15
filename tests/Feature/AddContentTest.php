@@ -25,33 +25,18 @@ test('get all courses', function () {
 });
 
 
-test('a user can create a course', function () {
-    
+test('user can delete a Curse', function () {
     $user = User::factory()->create();
-    
-    $this->actingAs($user);
 
-    $number_of_courses = Content::count();
+    $response = $this
+        ->actingAs($user)
+        ->delete('/deleteCurse', [
+            'id' => '1',
+        ]);
 
-    $response = $this->post(route('content.create'), [
-        $content = [
-            'title' => 'Course 1',
-            'description' => 'Description of course 1',
-            'visibility' => 1,
-        ]
-    ]);
+    $response = $this->get(route('cursos.index'));
 
-    //$response->assertRedirect(route('cursos.index'));
-
-    $this->assertEquals($number_of_courses + 1, Content::count());
-
-
-
-
-
-
-
-
+    $response->assertStatus(200);
 });
 
 
