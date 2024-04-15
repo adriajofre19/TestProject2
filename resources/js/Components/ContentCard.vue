@@ -14,6 +14,7 @@ const showDropdown = ref(false);
 const editingcontent = ref(false);
 const confirmingAdminDeletion = ref(false);
 const contentToDelete = ref({});
+const addcontent = ref(false);
 
 const props = defineProps({
     content: {
@@ -35,6 +36,10 @@ function openEditModal(id) {
     form.title = props.content.title;
     form.description = props.content.description;
     form.visibility = props.content.visibility;
+}
+
+function addContent() {
+    addcontent.value = true;
 }
 
 function confirmAdminDeletion(id, title, description, visibility) {
@@ -168,4 +173,6 @@ const handleDropdownClick = () => {
             </div>
         </div>
     </Modal>
+
+    
 </template>

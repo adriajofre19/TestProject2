@@ -5,16 +5,6 @@ import { EditorContent, useEditor } from "@tiptap/vue-3";
 import { reactive } from "vue";
 import { useForm } from "@inertiajs/vue3";
 import SaveButton from "./SaveButton.vue";
-import {defineProps} from 'vue';
-
-const props = defineProps({
-    course: {
-        type: Object,
-        required: true,
-    },
-});
-
-console.log(props.course);
 
 
 
@@ -23,18 +13,16 @@ let debug = false;
 
 const form = useForm({
     title: "",
-    content: "",
-    descripcio: props.course.descripcio,
+    description: "",
+    visibility: ''
 });
-
-
 
 const editor = useEditor({
     extensions: [StarterKit, Underline],
 });
 
 const save = () => {
-    form.content = editor.value.getHTML();
+    form.description = editor.value.getHTML();
 };
 
 const update = (d) => {
@@ -56,7 +44,7 @@ const setItalic = () => {
 const onSubmit = () => {
     save();
     form.visibility = toggle;
-    form.post(route("notes.create"));
+    form.post(route("content.create"));
 };
 </script>
 
@@ -64,10 +52,12 @@ const onSubmit = () => {
 
             <form @submit.prevent="onSubmit">
                 
-                <div class="flex flex-col sm:flex-row gap-2">
+                <div class="flex flex-col sm:flex-row gap-2 p-8">
                     <!-- EDITOR -->
                     <div class="flex-1 flex flex-col">
-                        
+                        <input v-model="form.title" class="h-10 mb-2 border-container" maxlength="45"
+                            placeholder="Títol" type="text" required />
+
                         <!-- Toolbar TODO: Leave highlighted if activated -->
                         <div class="border-container bg-white">
                             <!-- TODO: Unhide until articles shows plain html -->
@@ -83,13 +73,18 @@ const onSubmit = () => {
                                 </button>
                             </div>
 
-                            <editor-content :editor="editor" v-model="form.descripcio" class="m-4" required/>
+                            <editor-content :editor="editor" class="m-4" required/>
                         </div>
+
+                        <select v-model="form.visibility" class="h-10 border-container" required>
+                            <option value="true">Privat</option>
+                            <option value="false">Públic</option>
+                        </select>
                     </div>
                     
 
                 </div>
-                <SaveButton class="my-4">Crear Notes</SaveButton>
+                <SaveButton>ENVIAR</SaveButton>
             </form>
 </template>
 

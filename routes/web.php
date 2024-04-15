@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/contents', [ContentController::class, 'index'])->name('contents.index');
 
+    Route::post('/content/afegir', [ContentController::class, 'create'])->name('content.create');
+
     Route::middleware(EnsureIsAdmin::class)->group(function () {
         Route::get('/adminusers', [AdminPanelController::class, 'index'])->name('admin.users');
         Route::post('/lista-usuaris/{id}', [AdminPanelController::class, 'update'])->name('users.update');
