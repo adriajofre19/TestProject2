@@ -7,6 +7,7 @@ use Inertia\Inertia;
 
 use App\Models\User;
 use App\Models\Notes;
+use App\Models\Course;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,7 @@ class HomeController extends Controller
     {
         return Inertia::render('Home', [
             'users' => User::all(),
-            'notes' => Notes::all(),
+            'courses' => Course::where('actiu', true)->orderBy('nom')->get(),
         ]);
     }
 
