@@ -47,4 +47,11 @@ class AdminPanelController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
     }
+
+    public function getAllUsers()
+    {
+        $users = User::all();
+        return response()->json($users);
+
+    }
 }

@@ -11,6 +11,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Models\User;
+
 /*
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -66,6 +68,8 @@ Route::get('/getAllUsers', function () {
     $users = User::all();
     return response()->json($users);
 });
+
+Route::get('/users', [AdminPanelController::class, 'getAllUsers'])->name('users.get');
 
 
 require __DIR__.'/auth.php';
